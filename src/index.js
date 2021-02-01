@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true, useNewUrlParser:true});
+mongoose.connect(process.env.MONGODB_URL, {useNewUrlParser:true});
 
 app.use(cors());
 app.use(express.json());
