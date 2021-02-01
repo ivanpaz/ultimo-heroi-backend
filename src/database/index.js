@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
+require('dotenv/config');
 
-mongoose.connect('mongodb://localhost/noderest', {useMongoClient: true});
+mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true});
 mongoose.Promise = global.Promise;
 
-module.exports = mongoose;
+module.exports = mongoose;*/
