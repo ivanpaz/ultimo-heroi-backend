@@ -21,7 +21,7 @@ app.use(require('./routes'));
 
 
 
-app.listen(3000);
+app.listen(process.env.PORT ||  3000);
 
 //const bodyParser = require('body-parser');
 /*app.use(bodyParser.json());
