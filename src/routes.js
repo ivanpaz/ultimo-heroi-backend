@@ -4,8 +4,8 @@ const multerConfig = require('./config/multer');
 
 
 const LoginController = require('./controllers/LoginController');
-const MissionController = require('./controllers/missionController');
-const TeamController = require('./controllers/teamController');
+const missionController = require('./controllers/missionController');
+const teamController = require('./controllers/teamController');
 
 
 const routes = express.Router();
@@ -47,14 +47,14 @@ routes.post('/users/add/', (request, response) => {
 routes.post('/login', LoginController.login);   
 
 //TIME
-routes.post('/time', TeamController.create);
-routes.get('/time',TeamController.list);
+routes.post('/time', teamController.create);
+routes.get('/time',teamController.list);
 
 //MISSÕES
-routes.post('/missions', MissionController.create);
-routes.get('/missions', MissionController.list);
-routes.get('/missions/:numMonth', MissionController.listMonth);
-//routes.delete('/missions/:id', MissionController.delete);
+routes.post('/missions', missionController.create);
+routes.get('/missions', missionController.list);
+routes.get('/missions/:numMonth', missionController.listMonth);
+//routes.delete('/missions/:id', missionController.delete);
 
 
 module.exports = routes;
