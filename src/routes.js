@@ -2,9 +2,9 @@ const express = require('express');
 const multer =require('multer');
 const multerConfig = require('./config/multer');
 
-const TeamController = require('./controllers/TeamController');
+const TeamController = require('./controllers/teamController');
 const LoginController = require('./controllers/LoginController');
-const MissionController = require('./controllers/MissionController');
+const MissionController = require('./controllers/missionController');
 
 
 const routes = express.Router();
