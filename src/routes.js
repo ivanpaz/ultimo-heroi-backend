@@ -4,8 +4,8 @@ const multerConfig = require('./config/multer');
 
 
 const LoginController = require('./controllers/LoginController');
-const MissionController = require('./controllers/MissionController');
-const TeamController = require('./controllers/TeamController');
+const MissionController = require('./controllers/missionController');
+const TeamController = require('./controllers/teamController');
 
 
 const routes = express.Router();
