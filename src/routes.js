@@ -54,7 +54,9 @@ routes.get('/time',teamController.list);
 routes.post('/missions', missionController.create);
 routes.get('/missions', missionController.list);
 routes.get('/missions/:numMonth', missionController.listMonth);
-//routes.delete('/missions/:id', missionController.delete);
+routes.post('/missions/createForAll/', missionController.createMissionForTeams);
+routes.get('/missions/all', missionController.listAll);
+routes.delete('/missions/delete/:id', missionController.deleteMission);
 
 
 module.exports = routes;
