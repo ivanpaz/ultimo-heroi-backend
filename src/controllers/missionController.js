@@ -102,7 +102,6 @@ module.exports = {
 
     async createMissionForTeams(request, response){
         const {numMonth, numMission} = request.body;
-        console.log(numMonth, numMission);
         const times = await Team.find({});
 
         const done= false;
@@ -128,5 +127,17 @@ module.exports = {
         }
 
         return response.json(times);
+    },
+
+    async updateMIssion (request, response){
+        console.log(request.body);
+        const f_done = request.body.done;
+        const f_feedback = request.body.feedback;
+        const f_anex = request.body.anex;
+        const f_id = request.body._id;
+
+        const result = await Mission.findOneAndUpdate({_id: f_id}, {done: f_done, feedback: f_feedback, anex: f_anex});
+        console.log(result);
+		return response.json(result);
     }
 }
