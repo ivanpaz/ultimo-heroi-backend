@@ -8,7 +8,7 @@ module.exports = {
 
     async login(request, response){
         console.log("Tentar logar");
-        const time = await Team.findOne({name: request.body.name, password: request.body.password});            
+        const time = await Team.findOne({name: request.body.capitan, password: request.body.password});            
         
         console.log(time);
         if(time != undefined){
