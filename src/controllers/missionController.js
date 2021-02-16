@@ -51,6 +51,13 @@ module.exports = {
         return response.json(missions);
     },
 
+    async getScore(request, response){
+        console.log("scoreeeeeeeeeeee");
+        const f_team_id = request.headers.authorization;
+        const missions = await Mission.find({team_id:f_team_id, done: true})
+        return response.json(missions);
+    },
+
 
     async delete(request, response){
         const {id} = request.params;
