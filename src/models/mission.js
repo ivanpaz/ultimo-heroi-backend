@@ -32,9 +32,6 @@ const MissionSchema = new mongoose.Schema({
         default: Date.now
     },
 
-
-
-
 });
 
 const Mission = mongoose.model('Mission', MissionSchema);

@@ -13,9 +13,7 @@ module.exports = {
         console.log(name, capitan, image, score, password);
 
         const team = await Team.create(request.body);
-        return response.json(team._id);
-
-        
+        return response.json(team._id);    
         
     },
 
