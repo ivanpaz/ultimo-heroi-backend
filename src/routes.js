@@ -49,6 +49,7 @@ routes.post('/login', LoginController.login);
 //TIME
 routes.post('/time', teamController.create);
 routes.get('/time',teamController.list);
+routes.post('/time/updateScore', teamController.newScore);
 
 //MISSÕES
 routes.post('/missions', missionController.create);

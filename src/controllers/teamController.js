@@ -25,5 +25,15 @@ module.exports = {
 
         const times = await Team.find({});            
         return response.json(times);
+    },
+
+    async newScore(request, response){
+        console.log(request.body);        
+        const f_id = request.body._id;
+        const f_score = request.body.score;
+
+        const result = await Team.findOneAndUpdate({_id: f_id}, {score: f_score});
+        console.log(result);
+		return response.json(result);
     }
 }
