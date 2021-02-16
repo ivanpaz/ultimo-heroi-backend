@@ -44,7 +44,8 @@ routes.post('/users/add/', (request, response) => {
 */
 
 //LOGAR
-routes.post('/login', LoginController.login);   
+routes.post('/login', LoginController.login);
+routes.post('/admin', LoginController.admin);
 
 //TIME
 routes.post('/time', teamController.create);
