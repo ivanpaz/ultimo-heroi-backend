@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const express = require('express');
 
 const Team = require('../models/team');
-
+const Mission = require('../models/mission'); 
 
 
 module.exports = {
@@ -33,5 +33,18 @@ module.exports = {
         const result = await Team.findOneAndUpdate({_id: f_id}, {score: f_score});
         console.log(result);
 		return response.json(result);
+    },
+
+    async listTeamsByMountMission(request, response){
+        console.log("Lista de times do mes e missao", request.body);
+
+        const missions = await Mission.find({numMonth: request.body.numMonth, numMission: request.body.numMission}).sort({done:-1, team_id:-1});            
+        return response.json(missions);
+    },
+
+    async getTeam(request, response){
+        console.log("opa", request.body._id)
+        const result = await Team.findOne({_id: request.body._id});
+        return response.json(result);
     }
 }

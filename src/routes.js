@@ -66,4 +66,9 @@ routes.delete('/missions/delete/:id', missionController.deleteMission);
 routes.post('/missions/update', missionController.updateMIssion);
 routes.get('/score', missionController.getScore);
 
+//ADMIN
+routes.get('/listTeamsByMountMission', teamController.listTeamsByMountMission);
+routes.get('/getTeam', teamController.getTeam);
+
+
 module.exports = routes;
