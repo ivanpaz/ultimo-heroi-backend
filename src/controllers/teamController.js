@@ -43,8 +43,10 @@ module.exports = {
     },
 
     async getTeam(request, response){
+
+        const teamId = request.headers.authorization;
         console.log("opa", request.body._id)
-        const result = await Team.findOne({_id: request.body._id});
+        const result = await Team.findOne({_id: teamId});
         return response.json(result);
     }
 }
