@@ -67,7 +67,7 @@ routes.post('/missions/update', missionController.updateMIssion);
 routes.get('/score', missionController.getScore);
 
 //ADMIN
-routes.get('/listTeamsByMountMission', teamController.listTeamsByMountMission);
+routes.post('/listTeamsByMountMission', teamController.listTeamsByMountMission);
 routes.get('/getTeam', teamController.getTeam);
 
 
