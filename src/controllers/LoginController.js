@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const express = require('express');
 
 const Team = require('../models/team');
+const Admin = require('../models/admin');
 
 module.exports = {
 
@@ -21,7 +22,7 @@ module.exports = {
 
     async admin(request, response){
         console.log("Tentar logar admin",request.body.user, request.body.password );
-        const time = await Team.findOne({capitan: request.body.capitan, password: request.body.password});            
+        const time = await Team.findOne({user: request.body.user, password: request.body.password});            
         
         console.log(time);
         if(time != undefined){
