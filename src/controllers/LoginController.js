@@ -9,7 +9,7 @@ module.exports = {
 
     async login(request, response){
         console.log("Tentar logar",request.body.capitan, request.body.password );
-        const time = await Admin.findOne({capitan: request.body.capitan, password: request.body.password});            
+        const time = await Team.findOne({capitan: request.body.capitan, password: request.body.password});            
         
         console.log(time);
         if(time != undefined){
@@ -22,7 +22,7 @@ module.exports = {
 
     async admin(request, response){
         console.log("Tentar logar admin",request.body.user, request.body.password );
-        const time = await Team.findOne({user: request.body.user, password: request.body.password});            
+        const time = await Admin.findOne({user: request.body.user, password: request.body.password});            
         
         console.log(time);
         if(time != undefined){
