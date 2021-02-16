@@ -38,7 +38,7 @@ module.exports = {
     async listTeamsByMountMission(request, response){
         console.log("Lista de times do mes e missao", request.body);
 
-        const missions = await Mission.find({numMonth: request.body.numMonth, numMission: request.body.numMission}).sort({done:-1, team_id:-1});            
+        const missions = await Mission.find({numMonth: request.body.numMonth, numMission: request.body.numMission}).sort({done:-1, team_id:1});            
         return response.json(missions);
     },
 
