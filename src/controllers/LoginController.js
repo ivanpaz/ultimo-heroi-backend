@@ -8,15 +8,15 @@ const Team = require('../models/team');
 module.exports = {
 
     async login(request, response){
-        console.log("Tentar logar",request.body.capitan, request.body.password );
-        const time = await Team.findOne({capitan: request.body.capitan, password: request.body.password});            
+        console.log("Tentar logar",request.body.matricula, request.body.password );
+        const time = await Team.findOne({capitan: request.body.matricula, password: request.body.password});            
         
         console.log(time);
         if(time != undefined){
             return response.json(time);
         }else{ 
-            console.log("Senha ou usuario incorreto");
-            return response.status(400).json({error: 'Login incorrento'});
+            console.log("Senha ou matricula incorreto");
+            return response.status(400).json({error: 'Senha ou matricula incorrento'});
         }
     },
 
