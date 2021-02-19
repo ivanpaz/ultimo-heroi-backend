@@ -9,7 +9,7 @@ const Mission = require('../models/mission');
 
 module.exports = {
     async create(request, response) {
-        const {name, capitan, image, score, password} = request.body;
+        const {name, capitan, image, score, password, matricula} = request.body;
         console.log(name, capitan, image, score, password);
 
         const team = await Team.create(request.body);

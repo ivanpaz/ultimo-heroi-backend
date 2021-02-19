@@ -24,6 +24,10 @@ const TeamSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    matricula:{
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now
