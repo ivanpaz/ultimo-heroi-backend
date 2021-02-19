@@ -16,7 +16,7 @@ module.exports = {
             return response.json(time);
         }else{ 
             console.log("Senha ou matricula incorreto");
-            return response.status(400).json({error: 'Senha ou matricula incorrento'});
+            return response.status(400).json({error: 'Senha ou matricula incorrentos'});
         }
     },
 
