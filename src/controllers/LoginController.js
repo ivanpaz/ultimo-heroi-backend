@@ -9,7 +9,7 @@ module.exports = {
 
     async login(request, response){
         console.log("Tentar logar",request.body.matricula, request.body.password );
-        const time = await Team.findOne({capitan: request.body.matricula, password: request.body.password});            
+        const time = await Team.findOne({matricula: request.body.matricula, password: request.body.password});            
         
         console.log(time);
         if(time != undefined){
