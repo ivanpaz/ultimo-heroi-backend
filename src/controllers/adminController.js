@@ -9,7 +9,7 @@ const Team = require('../models/team');
 module.exports = {
 
     async create(request, response) {
-        console.log(aaa);
+        
         const {user, password, m1,m2,m3,m4,m5,m6,m7,m8,m9,m10,m11,m12} = request.body;
         console.log(request.body);
 
