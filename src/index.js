@@ -1,10 +1,10 @@
-const express = require('express');
-const morgan = require('morgan');
-require('dotenv/config');
+const express = require("express");
+const morgan = require("morgan");
+require("dotenv/config");
 
-const mongoose = require('mongoose');
-const path = require('path');
-const cors = require('cors');
+const mongoose = require("mongoose");
+const path = require("path");
+const cors = require("cors");
 
 const app = express();
 
@@ -14,9 +14,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
-app.use(require('./routes'));
+app.use(require("./routes"));
 
 
 
