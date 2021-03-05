@@ -21,28 +21,6 @@ routes.post("/posts",multer(multerConfig).single("file"),  (request, response) =
 });
 
 
-/*
-routes.get('/users/:id', (request, response) => {
-
-    const params = request.params;
-    console.log(params);
-    return response.json({
-        evento: 'teste Ivan',
-        dev: 'ivan'
-    });
-});
-
-
-routes.post('/users/add/', (request, response) => {
-
-    const body = request.body;
-    return response.json({
-        AddUser: 'Ivan',
-        dev: 'ivan'
-    });
-});
-*/
-
 //LOGAR
 routes.post("/login", LoginController.login);
 routes.post("/admin", adminController.admin);

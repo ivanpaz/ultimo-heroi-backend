@@ -1,6 +1,4 @@
 const Team = require("../models/team");
-//const Admin = require('../models/admin');
-
 module.exports = {
 
 	async login(request, response){
@@ -11,19 +9,6 @@ module.exports = {
 			return response.status(400).json({error: "Senha ou matricula incorrentos"});
 		}
 	},
-
-	/* async admin(request, response){
-        console.log("Tentar logar ssss",request.body.user, request.body.password );
-        const time = await Admin.findOne({user: request.body.user, password: request.body.password});            
-        
-        console.log(time);
-        if(time != undefined){
-            return response.json(time);
-        }else{ 
-            console.log("Senha ou usuario incorreto");
-            return response.status(400).json({error: 'Login incorrento'});
-        }
-    },*/
 
 	async listAdmin(request, response){
 		const times = await Team.find({});            
