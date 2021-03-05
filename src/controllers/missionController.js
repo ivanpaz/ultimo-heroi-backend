@@ -1,8 +1,3 @@
-const { json } = require("body-parser");
-const crypto = require("crypto");
-
-const express = require("express");
-
 const Mission = require("../models/mission");
 const Team = require("../models/team");
 
@@ -14,9 +9,7 @@ module.exports = {
 		const {done, feedback, anex, title, numMonth, numMission} = request.body;
 		const team_id = request.headers.authorization;
 
-		console.log(team_id);
-
-		const mission = result = await Mission.create({
+		const mission = await Mission.create({
 			done, 
 			feedback, 
 			anex, 
@@ -38,21 +31,17 @@ module.exports = {
 	},
 
 	async listAll(request, response){
-		console.log("allllllllllllllll");
 		const missions = await Mission.find({});
 		return response.json(missions);
 	},
 
 	async listMonth(request, response){
-		const {f_numMonth} = request.params.numMonth;
-		console.log(request.params.numMonth);
 		const f_team_id = request.headers.authorization;
 		const missions = await Mission.find({team_id: f_team_id, numMonth: request.params.numMonth});
 		return response.json(missions);
 	},
 
 	async getScore(request, response){
-		console.log("scoreeeeeeeeeeee");
 		const f_team_id = request.headers.authorization;
 		const missions = await Mission.find({team_id:f_team_id, done: true});
 		return response.json(missions);
@@ -61,18 +50,12 @@ module.exports = {
 
 	async delete(request, response){
 		const {id} = request.params;
-		console.log(id, "deletar");
 
 		const team_id = request.headers.authorization;
-
-		console.log("deletar do " + team_id );
-
 		const mission = await connection("missions").select("team_id", "feedback").where("id", id);
-		console.log(mission);
 
 		if(mission[0].team_id){
 			if(mission[0].team_id != team_id){
-				console.log("Não autorizado");
 				return response.status(401).json({error: "Não permitido"});
 			}
 			await connection("missions").where("id", id).delete();
@@ -86,7 +69,6 @@ module.exports = {
 
 	async deleteMission(request, response){
 		const f_team_id = request.headers.authorization;
-		console.log("Id do time", f_team_id);
 		const f_numMonth = request.body.numMonth;
 		const f_numMission = request.body.numMission;
 		if(f_numMission){
@@ -110,8 +92,6 @@ module.exports = {
 	async createMissionForTeams(request, response){
 		const {numMonth, numMission} = request.body;
 		const times = await Team.find({});
-
-		const done= false;
 		const feedback =" ";
 		const anex = "sem_anexo";
 		const title = "Missão "+ numMission;
@@ -119,8 +99,7 @@ module.exports = {
 
 		for(var i = 0; i < times.length; i++) {
 			var team_id = times[i].id;  
-
-			const mission = result = await Mission.create({
+			await Mission.create({
                 
 				feedback, 
 				anex, 
@@ -129,22 +108,17 @@ module.exports = {
 				numMission,
 				team_id,
 			});
-            
-			console.log(mission);
 		}
-
 		return response.json(times);
 	},
 
 	async updateMIssion (request, response){
-		console.log(request.body);
 		const f_done = request.body.done;
 		const f_feedback = request.body.feedback;
 		const f_anex = request.body.anex;
 		const f_id = request.body._id;
 
 		const result = await Mission.findOneAndUpdate({_id: f_id}, {done: f_done, feedback: f_feedback, anex: f_anex});
-		console.log(result);
 		return response.json(result);
 	}
 };
