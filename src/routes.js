@@ -17,7 +17,6 @@ routes.get("/", (request, response) => {
 });
 
 routes.post("/posts",multer(multerConfig).single("file"),  (request, response) => {
-	console.log(request.file);
 	response.json({post: "Post"});
 });
 
