@@ -1,9 +1,9 @@
 const express = require("express");
-var missionRoutes = require("./missions/routes");
+const missionRoutes = require("./missions/routes");
+const teamsRoutes = require("./teams/routes");
 
 const LoginController = require("./controllers/LoginController");
-const missionController = require("./controllers/missionController");
-const teamController = require("./controllers/teamController");
+
 const adminController = require("./controllers/adminController");
 
 const routes = express.Router();
@@ -15,14 +15,11 @@ routes.get("/listAdmins", adminController.listAdmin);
 
 routes.post("/createAdmin", adminController.create);
 
-//TIME
-routes.post("/time", teamController.create);
-routes.get("/time", teamController.list);
-routes.post("/time/updateScore", teamController.newScore);
-
+routes.use("/times", teamsRoutes);
 routes.use("/missions", missionRoutes);
 //ADMIN
+/*
 routes.post("/listTeamsByMountMission", teamController.listTeamsByMountMission);
 routes.get("/getTeam", teamController.getTeam);
-
+*/
 module.exports = routes;

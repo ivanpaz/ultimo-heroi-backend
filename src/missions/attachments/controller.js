@@ -1,9 +1,12 @@
-const { listFiles, upload } = require("./uploader");
+class AttachmentsController {
+	constructor(uploader) {
+		this.uploader = uploader;
+	}
 
-module.exports = {
 	async create(request, response) {
 		const file = request.files.anexo;
-		await upload(file);
+		await this.uploader.upload(file);
 		return response.json({ status: "criado" });
-	},
-};
+	}
+}
+module.exports = AttachmentsController;

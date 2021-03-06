@@ -1,6 +1,5 @@
 const { google } = require("googleapis");
 const googleAuth = require("./auth");
-const fs = require("fs");
 const { Readable } = require("stream");
 
 const listItens = async () => {
@@ -34,7 +33,6 @@ const createFile = async (file, folder) => {
 	let fileMetadata = {
 		name: file.name,
 		mimeType: "image/jpeg",
-
 		parents: [folder],
 	};
 	let media = {

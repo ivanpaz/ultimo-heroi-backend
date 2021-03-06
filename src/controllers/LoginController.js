@@ -1,4 +1,4 @@
-const Team = require("../models/team");
+const Team = require("../teams/model");
 module.exports = {
 
 	async login(request, response){

@@ -14,4 +14,5 @@ routes.delete("/delete/:id", missionController.deleteMission);
 routes.post("/update", missionController.updateMIssion);
 routes.get("/score", missionController.getScore);
 
+
 module.exports = routes;
