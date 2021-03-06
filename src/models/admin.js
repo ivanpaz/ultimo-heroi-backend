@@ -46,8 +46,8 @@ const AdmSchema = new mongoose.Schema({
 	},
 	m12:{
 		type: Number
-	}
-
+	},
+	
 });
 
 const Adm = mongoose.model("Adm", AdmSchema);

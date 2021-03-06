@@ -1,5 +1,4 @@
-
-const Team = require("../models/team");
+const Team = require("./model");
 const Mission = require("../models/mission");
 
 module.exports = {
@@ -14,13 +13,21 @@ module.exports = {
 	},
 
 	async newScore(request, response) {
-		const f_id = request.body._id;
+		const id = request.params.id;
 		const f_score = request.body.score;
 
 		const result = await Team.findOneAndUpdate(
-			{ _id: f_id },
+			{ _id: id },
 			{ score: f_score }
 		);
+		return response.json(result);
+	},
+
+	async update(request, response) {
+		const id = request.params.id;
+		const campos = request.body;
+
+		const result = await Team.findOneAndUpdate({ _id: id }, { ...campos });
 		return response.json(result);
 	},
 

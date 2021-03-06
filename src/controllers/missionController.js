@@ -1,5 +1,5 @@
 const Mission = require("../models/mission");
-const Team = require("../models/team");
+const Team = require("../teams/model");
 
 module.exports = {
 	async create(request, response) {

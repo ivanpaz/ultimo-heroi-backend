@@ -1,41 +1,36 @@
 const mongoose = require("../database");
 
 const TeamSchema = new mongoose.Schema({
-
-	name:{
+	name: {
 		type: String,
-		required: true
+		required: true,
 	},
 
-	capitan:{
+	capitan: {
 		type: String,
 		unique: true,
 		required: true,
-		lowercase: true
+		lowercase: true,
 	},
-	image:{
-		type:String    
+	image: {
+		type: String,
 	},
-	score:{
+	score: {
 		type: Number,
 		default: 0,
 	},
-	password:{
+	password: {
 		type: String,
-		required: true
+		required: true,
 	},
-	matricula:{
+	matricula: {
 		type: String,
-		required: true
+		required: true,
 	},
 	createdAt: {
 		type: Date,
-		default: Date.now
+		default: Date.now,
 	},
-
-
-
-
 });
 
 const Team = mongoose.model("Team", TeamSchema);
